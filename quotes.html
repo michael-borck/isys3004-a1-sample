@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Quote — Alex Rivera</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="site-name">Alex Rivera</a>
+
+    <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
+      &#9776;
+    </button>
+
+    <nav id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="quotes.html">Daily Quote</a></li>
+      </ul>
+    </nav>
+
+    <button class="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <h1>Daily Quote</h1>
+      <p>A random quote fetched live from the <a href="https://dummyjson.com/docs/quotes" target="_blank" rel="noopener">DummyJSON API</a>.</p>
+    </section>
+
+    <section class="quote-section">
+
+      <!-- Loading state: shown while the fetch is in progress -->
+      <p id="quote-loading" class="loading-message">Loading quote&hellip;</p>
+
+      <!-- Error state: shown if the fetch fails (hidden by default) -->
+      <p id="quote-error" class="error-message" hidden></p>
+
+      <!-- Quote display: shown once data arrives (hidden by default) -->
+      <figure id="quote-display" class="quote-card" hidden>
+        <blockquote id="quote-text"></blockquote>
+        <figcaption id="quote-author"></figcaption>
+      </figure>
+
+      <!-- Button to fetch another quote (hidden until first quote loads) -->
+      <button id="new-quote-btn" class="button" hidden>Get another quote</button>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alex Rivera &middot; Built with HTML, CSS, and JavaScript</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+</body>
+</html>

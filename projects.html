@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Alex Rivera</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="site-name">Alex Rivera</a>
+
+    <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
+      &#9776;
+    </button>
+
+    <nav id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="quotes.html">Daily Quote</a></li>
+      </ul>
+    </nav>
+
+    <button class="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <h1>Projects</h1>
+      <p>Work completed during ISYS3004 this semester — built checkpoint by checkpoint.</p>
+    </section>
+
+    <div class="projects-list">
+
+      <article class="project-card">
+        <header class="project-card-header">
+          <h2>This Portfolio Site</h2>
+          <p class="project-meta">Weeks 2–6 &middot; HTML, CSS, JavaScript</p>
+        </header>
+        <p>
+          The site you're looking at right now. Built progressively across five weeks,
+          starting with bare HTML structure and adding styling, interactivity, and an
+          API integration one checkpoint at a time.
+        </p>
+        <p>
+          The constraint of building it incrementally — rather than generating it all at once —
+          turned out to be the most useful part. Every time I added something new, I already
+          understood the layer underneath it.
+        </p>
+        <p class="project-learning">
+          <strong>What I learned:</strong> Semantic HTML, external CSS and JS files,
+          mobile-first responsive design, and how to have a useful conversation with an AI
+          rather than just asking it to do everything.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <header class="project-card-header">
+          <h2>Responsive Navigation</h2>
+          <p class="project-meta">Week 4 &middot; JavaScript, Accessibility</p>
+        </header>
+        <p>
+          A hamburger menu that collapses on mobile screens and expands into a horizontal
+          nav on desktop. My first real JavaScript feature — it took longer than I expected
+          because I kept breaking the ARIA attributes.
+        </p>
+        <p class="project-learning">
+          <strong>What I learned:</strong> Event listeners, toggling CSS classes from JS,
+          <code>aria-expanded</code>, and why accessibility attributes need to be kept
+          in sync with the visible state of the UI.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <header class="project-card-header">
+          <h2>Dark / Light Theme Toggle</h2>
+          <p class="project-meta">Week 4 &middot; JavaScript, CSS Custom Properties</p>
+        </header>
+        <p>
+          A theme toggle that switches between light and dark mode and remembers your
+          preference using <code>localStorage</code>. The preference persists across
+          all pages and browser sessions.
+        </p>
+        <p class="project-learning">
+          <strong>What I learned:</strong> CSS custom properties (variables), the
+          <code>data-</code> attribute pattern for theming, and
+          <code>localStorage</code> for persisting simple user preferences.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <header class="project-card-header">
+          <h2>Daily Quote Fetcher</h2>
+          <p class="project-meta">Week 5 &middot; JavaScript, Fetch API</p>
+        </header>
+        <p>
+          Fetches a random quote from the DummyJSON API and displays it on the
+          <a href="quotes.html">Daily Quote page</a>. Includes a loading state while
+          the request is in flight and a clear error message if it fails.
+        </p>
+        <p class="project-learning">
+          <strong>What I learned:</strong> <code>async/await</code>, handling network
+          errors gracefully, updating the DOM with fetched data, and why you should
+          never assume an API will always respond successfully.
+        </p>
+      </article>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alex Rivera &middot; Built with HTML, CSS, and JavaScript</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

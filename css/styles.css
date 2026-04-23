@@ -1,0 +1,546 @@
+/* ================================================================
+   styles.css — Alex Rivera Portfolio
+   ISYS3004 Assessment 1 — Sample Answer
+
+   Sections:
+   1.  Custom Properties  (colours, spacing, fonts)
+   2.  Dark Theme         (overrides for data-theme="dark")
+   3.  Reset & Base       (sensible defaults)
+   4.  Layout             (container, main, section spacing)
+   5.  Header & Nav       (sticky header, responsive nav)
+   6.  Buttons            (reusable .button style)
+   7.  Hero               (home page intro section)
+   8.  Card Grid          (3-column skill cards on home page)
+   9.  Page Header        (title block on inner pages)
+   10. About Page         (2-column text + skills list)
+   11. Projects Page      (stacked project cards)
+   12. Quotes Page        (quote display, loading, error states)
+   13. Footer
+   14. Responsive         (mobile layout under 768px)
+   ================================================================ */
+
+
+/* ── 1. Custom Properties ─────────────────────────────────────────
+   All colours and spacing live here. To change the look of the
+   whole site, you only need to edit this one section.
+   ──────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Colours */
+  --bg:           #ffffff;      /* page background */
+  --surface:      #f8fafc;      /* cards, header */
+  --border:       #e2e8f0;      /* subtle dividers */
+  --text:         #1e293b;      /* main text */
+  --text-muted:   #64748b;      /* secondary text */
+  --accent:       #4f46e5;      /* indigo — links, highlights */
+  --accent-hover: #4338ca;      /* darker indigo on hover */
+  --accent-fg:    #ffffff;      /* text colour on top of accent */
+
+  /* Spacing — used consistently throughout */
+  --gap-sm:  0.5rem;
+  --gap-md:  1rem;
+  --gap-lg:  2rem;
+  --gap-xl:  4rem;
+
+  /* Typography */
+  --font: system-ui, -apple-system, sans-serif;
+
+  /* Misc */
+  --radius:  8px;
+  --width:   900px;    /* max content width */
+  --speed:   0.2s;     /* transition duration */
+}
+
+
+/* ── 2. Dark Theme ────────────────────────────────────────────────
+   When JavaScript sets data-theme="dark" on <html>, these values
+   replace the ones above. Everything else stays the same.
+   ──────────────────────────────────────────────────────────────── */
+
+[data-theme="dark"] {
+  --bg:         #0f172a;
+  --surface:    #1e293b;
+  --border:     #334155;
+  --text:       #f1f5f9;
+  --text-muted: #94a3b8;
+  /* accent colours stay the same in both themes */
+}
+
+
+/* ── 3. Reset & Base ──────────────────────────────────────────────
+   Removes browser default margin/padding and sets sensible defaults.
+   ──────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  background-color: var(--bg);
+  color: var(--text);
+  /* Smooth colour transition when theme toggles */
+  transition: background-color var(--speed), color var(--speed);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  line-height: 1.3;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+code {
+  font-family: monospace;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+
+/* ── 4. Layout ────────────────────────────────────────────────────
+   Centred content with consistent padding.
+   ──────────────────────────────────────────────────────────────── */
+
+main {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: var(--gap-xl) var(--gap-md);
+}
+
+/* Add space between sections inside main */
+main > section + section,
+main > div + section,
+main > section + div {
+  margin-top: var(--gap-xl);
+}
+
+
+/* ── 5. Header & Navigation ───────────────────────────────────────
+   Sticky header with site name, nav links, and theme toggle.
+   On desktop: one horizontal row.
+   On mobile: hamburger button reveals stacked nav links.
+   ──────────────────────────────────────────────────────────────── */
+
+header {
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: var(--gap-md) var(--gap-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: background-color var(--speed), border-color var(--speed);
+}
+
+.site-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Navigation links — horizontal list on desktop */
+#primary-nav ul {
+  display: flex;
+  gap: var(--gap-sm);
+}
+
+#primary-nav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius);
+  transition: color var(--speed);
+}
+
+#primary-nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Active page link — set by JavaScript in main.js */
+#primary-nav a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition: border-color var(--speed);
+}
+
+
+/* ── 6. Buttons ───────────────────────────────────────────────────
+   A reusable .button class used for links and <button> elements.
+   ──────────────────────────────────────────────────────────────── */
+
+.button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--accent-fg);
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--font);
+  transition: background-color var(--speed);
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+  text-decoration: none;
+  color: var(--accent-fg);
+}
+
+
+/* ── 7. Hero ──────────────────────────────────────────────────────
+   The opening section on the home page.
+   ──────────────────────────────────────────────────────────────── */
+
+.hero {
+  padding: var(--gap-xl) 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--gap-sm);
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: var(--gap-md);
+}
+
+.hero .intro {
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: var(--gap-lg);
+}
+
+
+/* ── 8. Card Grid ─────────────────────────────────────────────────
+   Three columns on desktop, one column on mobile.
+   ──────────────────────────────────────────────────────────────── */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-md);
+  margin-top: var(--gap-md);
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--gap-lg);
+  transition: border-color var(--speed);
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: var(--gap-sm);
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+
+/* ── 9. Page Header ───────────────────────────────────────────────
+   Title block at the top of About, Projects, and Quotes pages.
+   ──────────────────────────────────────────────────────────────── */
+
+.page-header {
+  padding-bottom: var(--gap-lg);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--gap-lg);
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: var(--gap-sm);
+}
+
+.page-header p {
+  color: var(--text-muted);
+}
+
+
+/* ── 10. About Page ───────────────────────────────────────────────
+   Two-column layout: bio text on the left, skills list on the right.
+   ──────────────────────────────────────────────────────────────── */
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap-xl);
+  align-items: start;
+}
+
+/* Section labels inside the bio */
+.about-text h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: var(--gap-lg);
+  margin-bottom: var(--gap-sm);
+}
+
+.about-text h2:first-child {
+  margin-top: 0;
+}
+
+.about-text p {
+  margin-bottom: var(--gap-md);
+}
+
+/* Skills sidebar */
+.skills-list h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--gap-md);
+}
+
+.skills-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.skills-list li {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--gap-sm) var(--gap-md);
+  font-size: 0.9rem;
+}
+
+
+/* ── 11. Projects Page ────────────────────────────────────────────
+   Stacked project cards with a coloured top border per card.
+   ──────────────────────────────────────────────────────────────── */
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}
+
+.project-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap-lg);
+}
+
+.project-card-header {
+  margin-bottom: var(--gap-md);
+}
+
+.project-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.project-meta {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.project-card > p {
+  color: var(--text-muted);
+  margin-bottom: var(--gap-sm);
+}
+
+/* "What I learned" section at the bottom of each card */
+.project-learning {
+  color: var(--text);
+  font-size: 0.9rem;
+  padding-top: var(--gap-sm);
+  border-top: 1px solid var(--border);
+  margin-top: var(--gap-sm);
+}
+
+
+/* ── 12. Quotes Page ──────────────────────────────────────────────
+   Quote display with loading and error states.
+   ──────────────────────────────────────────────────────────────── */
+
+.quote-section {
+  max-width: 640px;
+}
+
+.quote-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--gap-lg);
+  margin-bottom: var(--gap-lg);
+}
+
+blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: var(--gap-md);
+}
+
+figcaption {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.loading-message {
+  color: var(--text-muted);
+  padding: var(--gap-md) 0;
+}
+
+.error-message {
+  color: #dc2626;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius);
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+
+/* Dark mode error colours */
+[data-theme="dark"] .error-message {
+  color: #fca5a5;
+  background-color: #450a0a;
+  border-color: #7f1d1d;
+}
+
+
+/* ── 13. Footer ───────────────────────────────────────────────────*/
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: var(--gap-lg) var(--gap-md);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: var(--gap-xl);
+}
+
+
+/* ── 14. Responsive Design ────────────────────────────────────────
+   Below 768px: switch to single-column and show the hamburger menu.
+   All the desktop styles above apply at 769px and wider.
+   ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /* Allow the header to wrap so nav can drop below */
+  header {
+    flex-wrap: wrap;
+    padding: var(--gap-md);
+  }
+
+  /* Show the hamburger button */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Nav is hidden until the hamburger is clicked */
+  #primary-nav {
+    display: none;
+    width: 100%;
+    order: 3;   /* pushes nav below site-name row */
+  }
+
+  /* .is-open is added by JavaScript when hamburger is clicked */
+  #primary-nav.is-open {
+    display: block;
+  }
+
+  /* Stack nav links vertically */
+  #primary-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #primary-nav a {
+    display: block;
+    padding: var(--gap-md);
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+  }
+
+  /* Single-column grids */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Smaller hero heading on mobile */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
