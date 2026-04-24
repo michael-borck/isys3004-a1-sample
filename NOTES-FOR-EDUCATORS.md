@@ -61,6 +61,9 @@ Student repos must be private to prevent copying and protect academic integrity.
 **The learning value of Netlify:**  
 Deploying via Netlify is a genuine professional skill — connecting a Git repo, triggering automatic deploys on push, and managing a live URL through a deployment platform is standard industry practice. The requirement is pedagogically sound, not just administratively convenient.
 
+**Continuity into Assessment 2:**  
+Students who build a React frontend for Assessment 2 (Headless WordPress, Path B) cannot use GitHub Pages for it — Pages serves static files and cannot handle React Router's client-side routing without significant workarounds. Netlify supports React SPAs natively via redirect rules (`_redirects` file). Getting students comfortable with Netlify in A1 removes a deployment obstacle in A2, where the stakes are higher.
+
 **If a student asks why the sample is on GitHub Pages and theirs must be on Netlify:** Explain that the sample is a public teaching resource with no privacy requirement, whereas their repo must stay private for academic integrity. The platform is different; the skill being assessed (deploying a live, publicly accessible site) is the same.
 
 ---
