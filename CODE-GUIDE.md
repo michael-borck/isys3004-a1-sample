@@ -264,3 +264,16 @@ Use these in a fresh conversation with your AI tool of choice. They're designed 
 - *"What is WCAG and what does AA compliance mean in practice?"*
 - *"Explain ARIA roles and attributes. When should you use ARIA and when should you use semantic HTML instead?"*
 - *"What is the difference between a colour contrast ratio of 3:1 and 4.5:1, and which does WCAG AA require for normal text?"*
+
+---
+
+## One More Thing: Acknowledge Your Tools
+
+This site's footer says: *"Developed with AI assistance (Claude, Anthropic) and reviewed by a human educator."* That's not boilerplate — it's standard professional practice. Developers acknowledge the tools, libraries, and resources they use. AI is one of those tools.
+
+Your portfolio should do the same. A sentence in the footer, a note in the README, or an acknowledgements section on the About page — any of these works. The format doesn't matter; the habit does.
+
+Not sure what to write? Ask:
+
+- *"How do developers professionally acknowledge the use of AI tools in a project? Show me some examples I could adapt for a portfolio site footer."*
+- *"What's the difference between acknowledging AI assistance and disclaiming it? When would you use each?"*
