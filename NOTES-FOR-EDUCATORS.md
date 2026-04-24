@@ -48,6 +48,23 @@ The `KNOWN-ISSUES.md` file models a professional practice — the sprint backlog
 
 ---
 
+## Deployment: GitHub Pages (sample) vs Netlify (students)
+
+This sample site is hosted on GitHub Pages. Students are required to deploy to Netlify. These are different choices for different reasons, and both are correct.
+
+**Why this sample uses GitHub Pages:**  
+This is a public staff resource — there is no academic integrity concern with the repo being public. GitHub Pages is free, permanent, and requires no ongoing account maintenance. A Netlify deployment tied to a staff account could break if the account lapses, a project is deleted, or free-tier limits change. A public GitHub repo hosted via Pages will remain live as long as the repo exists.
+
+**Why students must use Netlify:**  
+Student repos must be private to prevent copying and protect academic integrity. Free GitHub accounts cannot host GitHub Pages from private repositories — Pages on the free tier requires a public repo. Netlify's free tier supports deployment from private repositories, making it the only practical option for students on free accounts.
+
+**The learning value of Netlify:**  
+Deploying via Netlify is a genuine professional skill — connecting a Git repo, triggering automatic deploys on push, and managing a live URL through a deployment platform is standard industry practice. The requirement is pedagogically sound, not just administratively convenient.
+
+**If a student asks why the sample is on GitHub Pages and theirs must be on Netlify:** Explain that the sample is a public teaching resource with no privacy requirement, whereas their repo must stay private for academic integrity. The platform is different; the skill being assessed (deploying a live, publicly accessible site) is the same.
+
+---
+
 ## Files in this repo
 
 | File | Purpose | Student-facing? |
