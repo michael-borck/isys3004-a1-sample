@@ -486,6 +486,15 @@ footer {
   margin-top: var(--gap-xl);
 }
 
+.footer-note {
+  margin-top: var(--gap-sm);
+  font-size: 0.78rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.8;
+}
+
 
 /* ── 14. Responsive Design ────────────────────────────────────────
    Below 768px: switch to single-column and show the hamburger menu.
