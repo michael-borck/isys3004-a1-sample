@@ -24,6 +24,10 @@ The site is intentionally simple. Every line of HTML, CSS, and JavaScript is som
 | `js/main.js` | Site-wide JS: mobile nav, theme toggle, active nav |
 | `js/api.js` | Fetch logic for the quotes page |
 | `CODE-GUIDE.md` | Explanation of the code — read this before your viva |
+| `KNOWN-ISSUES.md` | Acknowledged shortfalls — an example of professional practice |
+| `docs/conversations/` | Placeholder AI conversation transcripts (8 files, weeks 2–5) |
+| `docs/reflection.md` | Placeholder reflection document |
+| `docs/validation/` | Lighthouse and W3C validation reports |
 
 ## For students
 
