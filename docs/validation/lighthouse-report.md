@@ -1,7 +1,7 @@
 # Lighthouse Report
 
 **Page tested:** Home page (index.html)  
-**URL:** https://michael-borck.github.io/isys3004-a1-sample/  
+**URL:** https://michael-borck.github.io/isys3004-a1-sample-1/  
 **Device:** Mobile  
 **Date:** April 2025
 

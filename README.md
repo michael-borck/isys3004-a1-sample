@@ -2,7 +2,7 @@
 
 A reference implementation of the Assessment 1 portfolio for **ISYS3004 Business Web and Mobile Technologies** at Curtin University.
 
-**Live site:** https://michael-borck.github.io/isys3004-a1-sample/
+**Live site:** https://michael-borck.github.io/isys3004-a1-sample-1/
 
 ---
 
@@ -31,7 +31,7 @@ The site is intentionally simple. Every line of HTML, CSS, and JavaScript is som
 
 ## For students
 
-Start with the [live site](https://michael-borck.github.io/isys3004-a1-sample/), then read [CODE-GUIDE.md](CODE-GUIDE.md). The guide explains the ideas behind the code — how HTML, CSS, and JavaScript connect, what selectors do, and how specific features like dark mode and the API fetch work. It also lists the kinds of questions you may be asked in the viva.
+Start with the [live site](https://michael-borck.github.io/isys3004-a1-sample-1/), then read [CODE-GUIDE.md](CODE-GUIDE.md). The guide explains the ideas behind the code — how HTML, CSS, and JavaScript connect, what selectors do, and how specific features like dark mode and the API fetch work. It also lists the kinds of questions you may be asked in the viva.
 
 ## Acknowledgements
 
